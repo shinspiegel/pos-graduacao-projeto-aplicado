@@ -39,7 +39,7 @@
       ]
     ]
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
@@ -64,9 +64,7 @@
     "prettier": "^2.0.4",
     "replace": "^1.1.5",
     "standard-version": "^7.1.0",
-    "tslint": "^6.1.1"
-  },
-  "dependencies": {
+    "tslint": "^6.1.1",
     "@sendgrid/mail": "^7.1.0",
     "axios": "^0.19.1",
     "bcryptjs": "^2.4.3",
