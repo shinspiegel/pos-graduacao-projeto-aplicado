@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import './index.css';
 
 import useActions from '../../context/useActions';
@@ -63,11 +64,7 @@ const ProductSelect = () => {
   };
 
   const isChecked = (productId) => {
-    if (
-      selectedProduct &&
-      selectedProduct.productReference &&
-      selectedProduct.productReference._id === productId
-    ) {
+    if (selectedProduct && selectedProduct.productReference && selectedProduct.productReference._id === productId) {
       return true;
     }
 
@@ -80,10 +77,15 @@ const ProductSelect = () => {
 
   return (
     <>
-      <main className='productSelect'>
+      <motion.main
+        initial={{ left: 300, opacity: 0 }}
+        exit={{ left: 300, opacity: 0 }}
+        animate={{ left: 0, opacity: 1 }}
+        className="productSelect"
+      >
         <ProductSelectName initialValue={getProductName()} onChange={onChangeProductName} />
 
-        <form className='productSelect-form'>
+        <form className="productSelect-form">
           <ul>
             {productsList.map((product) => (
               <ProductSelectInput
@@ -93,14 +95,14 @@ const ProductSelect = () => {
                 price={product.price}
                 isChecked={isChecked(product._id)}
                 onChange={onChangeProductSelect}
-                radioName='product_select_group'
+                radioName="product_select_group"
               />
             ))}
           </ul>
         </form>
 
-        <BaseButton label='Voltar' onClick={buttonHandler} />
-      </main>
+        <BaseButton label="Voltar" onClick={buttonHandler} />
+      </motion.main>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './index.css';
 
 /**
@@ -7,7 +8,7 @@ import './index.css';
  */
 const ProductsList = ({ children }) => {
   if (children) {
-    return <ul className='productList'>{children}</ul>;
+    return <ul className="productList">{children}</ul>;
   }
 
   return null;
