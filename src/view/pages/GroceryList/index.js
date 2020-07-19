@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MdPersonOutline, MdAddShoppingCart, MdSettingsBackupRestore } from 'react-icons/md';
+import { motion } from 'framer-motion';
 import swal from 'sweetalert';
 import './index.css';
 
@@ -115,7 +116,7 @@ const GroceryList = () => {
         onClickPrev={() => handleNavigation(-1)}
       />
 
-      <main className='groceryList'>
+      <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="groceryList">
         {findedList ? (
           <ProductsList>
             {findedList.productsList.map((product, index) => (
@@ -129,28 +130,16 @@ const GroceryList = () => {
                 toggleIcon={() => onClickBuyToggle(product._id)}
               />
             ))}
-            <ProductItemNew onClick={onClickNewProduct} placeholder='Preciso comprar...' />
+            <ProductItemNew onClick={onClickNewProduct} placeholder="Preciso comprar..." />
           </ProductsList>
         ) : null}
         <Loader isLoading={isLoading} />
-      </main>
+      </motion.main>
 
       <BottomMenu>
-        <BottomMenuItem
-          onClick={() => push('/profile')}
-          icon={MdPersonOutline}
-          label='Perfil do usuário'
-        />
-        <BottomMenuItem
-          onClick={onClickGetFromLastWeek}
-          icon={MdAddShoppingCart}
-          label='Resgatar semana'
-        />
-        <BottomMenuItem
-          onClick={handleCurrentWeek}
-          icon={MdSettingsBackupRestore}
-          label='Semana Atual'
-        />
+        <BottomMenuItem onClick={() => push('/profile')} icon={MdPersonOutline} label="Perfil do usuário" />
+        <BottomMenuItem onClick={onClickGetFromLastWeek} icon={MdAddShoppingCart} label="Resgatar semana" />
+        <BottomMenuItem onClick={handleCurrentWeek} icon={MdSettingsBackupRestore} label="Semana Atual" />
       </BottomMenu>
     </>
   );
