@@ -5,10 +5,6 @@ Portuguese text is below | Texto em portugues fica abaixo
 Personal project to be presented to graduate students. To run locally you need to:
 
 ```sh
-# Create a folder to start
-mkdir meu-mercado;
-cd meu-mercado;
-
 # Clone the repositories
 git clone https://github.com/shinspiegel/pos-graduacao-projeto-aplicado.git meumercado;
 
@@ -126,10 +122,6 @@ You can start the application with the `start` script. To start the application 
 Projeto pessoal para ser apresentado para pós-graduação. Para executar localmente você precisa:
 
 ```sh
-# Cria uma pasta para inciar
-mkdir meu-mercado;
-cd meu-mercado;
-
 # Clona os repositórios
 git clone https://github.com/shinspiegel/pos-graduacao-projeto-aplicado.git meumercado;
 

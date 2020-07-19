@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import Private from './components/PrivateRoute';
 import Public from './components/PublicRoute';
 import { themeHandler, getBackgroundColor } from './utils';
@@ -24,23 +26,25 @@ const Router = () => {
 
   return (
     <>
-      <Switch>
-        <Route component={() => <Redirect to='/login' />} path='/' exact />
-        <Route component={() => <h1>home</h1>} path='/home' />
+      <AnimatePresence>
+        <Switch>
+          <Route component={() => <Redirect to="/login" />} path="/" exact />
+          <Route component={() => <h1>home</h1>} path="/home" />
 
-        <Public component={Login} path='/login' />
-        <Public component={Register} path='/register' />
-        <Public component={Recover} path='/recover' exact />
-        <Public component={ResetPassword} path='/recover/:id/:code' />
+          <Public component={Login} path="/login" />
+          <Public component={Register} path="/register" />
+          <Public component={Recover} path="/recover" exact />
+          <Public component={ResetPassword} path="/recover/:id/:code" />
 
-        <Private component={GroceryList} path='/list/:year/:week' />
+          <Private component={GroceryList} path="/list/:year/:week" />
 
-        <Private component={ProductSelect} path='/product-select/:year/:week/:product_id' />
+          <Private component={ProductSelect} path="/product-select/:year/:week/:product_id" />
 
-        <Private component={ProfilePage} path='/profile' />
+          <Private component={ProfilePage} path="/profile" />
 
-        <Route component={() => <h1>404</h1>} path='/*' />
-      </Switch>
+          <Route component={() => <h1>404</h1>} path="/*" />
+        </Switch>
+      </AnimatePresence>
 
       <ShowNotifications />
       <Background color={getBackgroundColor(pathname)} />

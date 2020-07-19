@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import './index.css';
 
 import { MdSearch, MdShoppingBasket, MdRemoveCircleOutline } from 'react-icons/md';
@@ -39,16 +40,16 @@ const ProductItem = ({ product, onBlur, searchIcon, toggleIcon, productIndex, re
   };
 
   return (
-    <li className={`productItem ${isBought ? 'strike' : ''}`}>
+    <motion.li
+      initial={{ y: 10, scale: 0.5, opacity: 0 }}
+      animate={{ y: 0, scale: 1, opacity: 1 }}
+      exit={{ y: 10, scale: 1.1, opacity: 0 }}
+      className={`productItem ${isBought ? 'strike' : ''}`}
+    >
       <button onClick={onClickToggleBought}>
         <MdShoppingBasket />
       </button>
-      <input
-        onBlur={onBlurHandle}
-        value={input}
-        disabled={isBought}
-        onChange={(e) => setInput(e.target.value)}
-      />
+      <input onBlur={onBlurHandle} value={input} disabled={isBought} onChange={(e) => setInput(e.target.value)} />
       {reference && reference.price ? <ProductItemPrice price={reference.price} /> : null}
       <button onClick={onClickSearchHandle}>
         <MdSearch />
@@ -56,7 +57,7 @@ const ProductItem = ({ product, onBlur, searchIcon, toggleIcon, productIndex, re
       <button onClick={removeProdut}>
         <MdRemoveCircleOutline />
       </button>
-    </li>
+    </motion.li>
   );
 };
 

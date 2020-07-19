@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import './index.css';
 
 import BaseInput from '../../components/BaseInput';
@@ -37,13 +38,13 @@ const Profile = () => {
 
   return (
     <>
-      <div className="profilePage">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="profilePage">
         <h3>
           <span>O que gostaria de alterar</span>
           {userData.name}
         </h3>
 
-        <form onSubmit={submitHandler}>
+        <motion.form initial={{ top: 200 }} animate={{ top: 0 }} exit={{ top: -200 }} onSubmit={submitHandler}>
           <h4>Alterar dados</h4>
           <BaseInput onChange={(value) => setForm({ ...form, name: value })} value={form.name} label="Alterar nome" />
           <BaseInput
@@ -59,11 +60,11 @@ const Profile = () => {
             type="password"
           />
           <BaseButton label="Salvar Alterações" className="secondary" />
-        </form>
+        </motion.form>
 
         <BaseButton onClick={handleLogout} className="ghost secondary" label="Logout" />
         <BaseButton onClick={handleBack} className="" label="Voltar" />
-      </div>
+      </motion.div>
       <VersionDisplay version={packageJson.version} />
     </>
   );
