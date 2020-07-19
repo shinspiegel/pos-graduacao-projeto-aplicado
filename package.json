@@ -10,7 +10,8 @@
     "workspace:clean": "rm -rf .cache public node_modules; yarn",
     "nodemon": "nodemon src/index.js",
     "parcel:build": "rm -rf ./public; parcel build src/view/index.html --out-dir public --no-source-maps",
-    "parcel:dev": "rm -rf ./public; parcel --port 9010 src/view/index.html --out-dir public"
+    "parcel:dev": "rm -rf ./public; parcel --port 9010 src/view/index.html --out-dir public",
+    "clean": "rm -rf ./node_modules ./public ./.cache ./access.log ./package-lock.json ./yarn-error.log ./yarn.lock"
   },
   "prettier": {
     "printWidth": 120,
