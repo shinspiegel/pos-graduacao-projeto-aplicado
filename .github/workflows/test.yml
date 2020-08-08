@@ -12,8 +12,13 @@ jobs:
     name: Run tests
     runs-on: ubuntu-latest
 
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Install nodejs
         uses: actions/setup-node@v1
@@ -32,3 +37,9 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
           PORT: ${{ secrets.PORT }}
+
+      - name: Check esLint
+        run: yarn lint
+
+      - name: Check commit message
+        uses: wagoid/commitlint-github-action@v1
