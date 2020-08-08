@@ -26,9 +26,9 @@ jobs:
       - name: Test Repository
         run: npm run test
         env:
-          SERVICE_WORKER: ${{ secrets.SERVICE_WORKER }}
-          FRONTEND: ${{ secrets.FRONTEND }}
-          BACKEND: ${{ secrets.BACKEND }}
+          SERVICE_WORKER: false
+          # FRONTEND: ${{ secrets.FRONTEND }}
+          # BACKEND: ${{ secrets.BACKEND }}
           MONGO_URI: ${{ secrets.MONGO_URI }}
           SALT: ${{ secrets.SALT }}
           SECRET: ${{ secrets.SECRET }}
