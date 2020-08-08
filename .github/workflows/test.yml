@@ -1,4 +1,4 @@
-name: Github Test
+name: Repository Unit Test
 
 on:
   pull_request:
@@ -24,11 +24,9 @@ jobs:
         run: npm install
 
       - name: Test Repository
-        run: npm run test
+        run: npm run test --silent=true
         env:
           SERVICE_WORKER: false
-          # FRONTEND: ${{ secrets.FRONTEND }}
-          # BACKEND: ${{ secrets.BACKEND }}
           MONGO_URI: ${{ secrets.MONGO_URI }}
           SALT: ${{ secrets.SALT }}
           SECRET: ${{ secrets.SECRET }}

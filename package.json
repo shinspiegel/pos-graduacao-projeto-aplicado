@@ -22,8 +22,25 @@
     "semi": true
   },
   "babel": {
-    "presets": [ [ "@babel/preset-env", { "targets": { "node": 12 } } ], "@babel/preset-react" ],
-    "plugins": [ [ "@babel/transform-runtime", { "regenerator": true } ] ]
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": 12
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      [
+        "@babel/transform-runtime",
+        {
+          "regenerator": true
+        }
+      ]
+    ]
   },
   "jest": {
     "moduleNameMapper": {
