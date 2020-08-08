@@ -1,0 +1,33 @@
+name: Github Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - dev
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install package.json
+        run: npm install
+      - name: Test Repository
+        run: npm run test
+        env:
+          SERVICE_WORKER: ${{ secrets.SERVICE_WORKER }}
+          FRONTEND: ${{ secrets.FRONTEND }}
+          BACKEND: ${{ secrets.BACKEND }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          SALT: ${{ secrets.SALT }}
+          SECRET: ${{ secrets.SECRET }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          PORT: ${{ secrets.PORT }}
