@@ -6,6 +6,7 @@ const recoverController = require('./controller/recoverController');
 const productsController = require('./controller/productsController');
 const groceryListController = require('./controller/groceryListController');
 const getFromLastWeek = require('./controller/getFromLastWeek');
+const themeController = require('./controller/themeController');
 
 const routes = Router();
 
@@ -32,5 +33,7 @@ routes.delete('/grocery-lists/:year/:week', groceryListController.destroy);
 
 routes.get('/get-from-last/:year/:week', getFromLastWeek.index);
 routes.post('/get-from-last/:year/:week', getFromLastWeek.store);
+
+routes.put('/theme/:userId', themeController.update);
 
 module.exports = routes;

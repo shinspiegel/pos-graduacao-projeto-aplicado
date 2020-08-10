@@ -7,7 +7,7 @@ const InitialState = {
   backgroundImage: null,
   backgroundURL: null,
 
-  userTheme: 'dark',
+  userTheme: 'defaultTheme',
 
   userData: null,
 

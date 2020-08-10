@@ -8,12 +8,10 @@ import './index.css';
  * @param {String} props.label This is the label for the button
  * @param {Type=} props.type This is the type, as default it is 'submit'
  */
-const BaseButton = ({ label, className = 'default', type = 'submit', ...rest }) => {
-  return (
-    <button className={`baseButton-button ${className}`} type={type} {...rest}>
-      {label}
-    </button>
-  );
-};
+const BaseButton = ({ label, className = 'default', type = 'submit', ...rest }) => (
+  <button className={`baseButton-button ${className}`} type={type} {...rest}>
+    {label}
+  </button>
+);
 
 export default BaseButton;

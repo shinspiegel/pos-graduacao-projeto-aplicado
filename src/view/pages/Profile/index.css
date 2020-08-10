@@ -7,6 +7,17 @@
   gap: 1rem;
 }
 
+.profilePage ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.profilePage ul li:not(:last-child) {
+  margin-right: 1rem;
+}
+
 .profilePage h3 {
   margin-top: 2rem;
 
