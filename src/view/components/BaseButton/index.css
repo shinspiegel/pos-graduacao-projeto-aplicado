@@ -2,8 +2,8 @@
   background: none;
   border: none;
 
-  --background: var(--primary-bg);
-  --text: var(--primary);
+  --background: var(--primary);
+  --text: var(--primary-bg);
 
   color: var(--text);
   background-color: var(--background);
@@ -22,13 +22,13 @@
 }
 
 .baseButton-button.secondary {
-  --background: var(--secondary-bg);
-  --text: var(--secondary);
+  --background: var(--secondary);
+  --text: var(--secondary-bg);
 }
 
 .baseButton-button.accent {
-  --background: var(--accent-bg);
-  --text: var(--accent);
+  --background: var(--accent);
+  --text: var(--accent-bg);
 }
 
 .baseButton-button.ghost {

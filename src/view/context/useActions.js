@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import AppContext from './context';
 import { reducerCases as redux } from './reducer';
-import { setCookie, fetchArgs, notificationList, removeCookie } from '../utils';
+import { setCookie, fetchArgs, notificationList, removeCookie, themeHandler } from '../utils';
 import { useHistory } from 'react-router-dom';
 
 const backendURL = process.env.BACKEND;
@@ -92,6 +92,19 @@ const useActions = () => {
         console.log(err);
         return false;
       });
+  };
+
+  const changeTheme = async ({ theme, id }) => {
+    themeHandler(theme);
+
+    const args = fetchArgs({ type: 'PUT', auth: true, body: { theme } });
+    const url = `${backendURL}/theme/${id}`;
+    const response = await fetch(url, args)
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+
+    addNotification('USER_UPDATE_01');
+    setUser(response);
   };
 
   /**
@@ -258,6 +271,8 @@ const useActions = () => {
     register,
     recover,
     resetPassword,
+
+    changeTheme,
 
     getList,
     updateList,
