@@ -15,7 +15,7 @@
     "clean": "rm -rf ./node_modules ./public ./.cache ./access.log ./package-lock.json ./yarn-error.log ./yarn.lock"
   },
   "prettier": {
-    "printWidth": 120,
+    "printWidth": 100,
     "singleQuote": true,
     "trailingComma": "all",
     "tabWidth": 2,

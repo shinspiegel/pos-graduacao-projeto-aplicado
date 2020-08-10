@@ -16,12 +16,14 @@ import ProfilePage from './pages/Profile';
 
 import ShowNotifications from './components/ShowNotification';
 import Background from './components/Background';
+import useActions from './context/useActions';
 
 const Router = () => {
   const { pathname } = useLocation();
+  const { state } = useActions();
 
   useEffect(() => {
-    themeHandler(document.getElementsByTagName('html')[0], 'defaultTheme');
+    themeHandler(state.userTheme);
   }, []);
 
   return (
