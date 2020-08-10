@@ -17,8 +17,6 @@ const themeHandler = (theme, rootElement) => {
 
     themeProperties = Object.entries(themeList[theme]);
 
-    // console.log({ theme, themeProperties });
-
     themeProperties.forEach((name) => {
       rootElement.style.setProperty(name[0], name[1]);
     });
